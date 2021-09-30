@@ -1,0 +1,25 @@
+var userFirstName = gs.getUser().getFirstName();
+
+var timeDateNowUser = new GlideDateTime();
+var theHour = timeDateNowUser.getDisplayValue().split(' ')[1].substring(0,2);
+vaVars.timedatenow = timeDateNowUser;
+var greeting;
+var gr = new GlideRecord('sys_user');
+gr.get(gs.getUserID());
+gs.print(gr.time_zone);
+
+if( theHour < 12 ) 
+greeting = 'Good morning';
+else if ( theHour < 18 )
+greeting = 'Good afternoon';
+else
+greeting = 'Good evening';
+var message = '';
+
+if (gs.nil(userFirstName))
+message = 'Hello ';
+else 
+//message = gs.getMessage("{0} {1}", [greeting, userFirstName+',']);
+message = gs.getMessage(greeting)+' '+ userFirstName+ ',';
+gs.log(gs.getMessage(greeting));
+return message;
