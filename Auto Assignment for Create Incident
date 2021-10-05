@@ -1,0 +1,7 @@
+(function execute() {
+    var var_inc = new GlideRecord('incident');
+    var_inc.get(vaVars.inc_sysid);
+    if(!var_inc.assignment_group)
+    var_inc.assignment_group = 'd625dccec0a8016700a222a0f7900d06';
+    var_inc.update();
+})()
