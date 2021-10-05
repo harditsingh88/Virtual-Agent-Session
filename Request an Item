@@ -1,0 +1,6 @@
+var itemName = vaInputs.list_of_items.toString();
+    var gr = new GlideRecord('sc_cat_item');
+    gr.addQuery('name',itemName);
+    gr.query();
+    gr.next();
+    vaInputs.catalog_item_id = gr.sys_id;
